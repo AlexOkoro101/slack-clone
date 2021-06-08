@@ -77,8 +77,12 @@ const Container = styled.div`
     flex-grow: 1;
     overflow-y: scroll;
     margin-top: 60px;
+    position: relative;
 `;
 const Header = styled.div`
+    position: fixed;
+    background-color: #fff;
+    width: 76.6%;
     display: flex;
     justify-content: space-between;
     padding: 20px;
