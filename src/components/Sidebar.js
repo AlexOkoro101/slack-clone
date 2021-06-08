@@ -5,20 +5,22 @@ import React from 'react';
 import styled from 'styled-components';
 import SidebarOption from './SidebarOption';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 function Sidebar() {
     const [channels] = useCollection(db.collection('rooms'));
+    const [user] = useAuthState(auth);
 
     return (
         <Container>
             <SidebarHeader>
                 <SidebarInfo>
-                    <h2>ALEX CHAT</h2>
+                    <h2>ALEX SLACK</h2>
                     <h3>
                         <FiberManualRecordIcon></FiberManualRecordIcon>
-                        Alex Okoro
+                        {user.displayName}
                     </h3>
                 </SidebarInfo>
                 <CreateIcon></CreateIcon>
